@@ -22,12 +22,14 @@
 
   <?php
 	if(!empty($home)) {
-		$this->load->view('/template/landing/slider');
-	} 
+		$this->load->view('/template/landing/slider',$models);
+	} else {
+    echo '<div class="mb-5"></div>';
+  }
   ?>
   
   <main id="main">
-	  <?php $this->load->view($page) ?>
+	  <?php $this->load->view($page,empty($models)?[]:$models) ?>
   </main><!-- End #main -->
 
   <?php $this->load->view('/template/landing/footer') ?>

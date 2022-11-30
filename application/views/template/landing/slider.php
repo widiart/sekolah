@@ -7,17 +7,15 @@
 
     <div class="carousel-inner" role="listbox">
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
-      </div>
+      <?php
+      $i = 1;
+      foreach($slider as $isi):
+      ?>
+        <div class="carousel-item <?=$i++==1?"active":""?>" style="background-image: url(<?=$isi->file?>)">
+        </div>
+      <?php
+      endforeach;
+      ?>
 
     </div>
 

@@ -86,3 +86,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Sekolah'); // highest automatically-assigned error code
 defined('NAV_BRAND')      OR define('NAV_BRAND', 'Sekolah'); // highest automatically-assigned error code
+defined('_LANDING_DIR_')      OR define('_LANDING_DIR_', '/page/landing'); // highest automatically-assigned error code
