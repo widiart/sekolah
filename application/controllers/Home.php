@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['berita_model','galeri_model','video_model','slider_model','setting_model']);
+		$this->load->model(['berita_model','galeri_model','video_model','slider_model','setting_model','guru_model']);
 	}
 
 	public function index()
@@ -18,6 +18,7 @@ class Home extends CI_Controller {
 		$data['models']['berita'] = $this->berita_model->getAllContent(3);
 		$data['models']['slider'] = $this->slider_model->getAllContent(6);
 		$data['models']['about'] = $this->setting_model->getAllContent();
+		$data['models']['guru'] = $this->guru_model->getAllContentWithRelation();
 
 		$this->load->view('landing', $data);
 	}

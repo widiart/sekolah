@@ -8,7 +8,7 @@ class Profile extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['setting_model']);
+		$this->load->model(['setting_model','jurusan_model']);
 	}
 
 	public function index()
@@ -32,10 +32,15 @@ class Profile extends CI_Controller {
 		$this->load->view('landing', $data);
 	}
 	
-	public function video()
+	public function jurusan($id = null)
 	{
-		$data['page'] = _LANDING_DIR_.'/home/video';
-		$data['models']['video'] = $this->video_model->getAllContent(10);
+		if(!empty($id)) {
+			$data['page'] = _LANDING_DIR_.'/profile/jurusan_detail';
+			$data['models']['jurusan'] = $this->jurusan_model->getContentById($id);
+		} else {
+			$data['page'] = _LANDING_DIR_.'/profile/jurusan';
+			$data['models']['jurusan'] = $this->jurusan_model->getAllContent();
+		}
 
 		$this->load->view('landing', $data);
 	}

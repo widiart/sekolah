@@ -69,77 +69,24 @@
 
     <div class="section-title">
         <h2>Guru</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Daftar Guru yang sangat kompeten dalam bidangnya.</p>
     </div>
 
     <div class="recent-photos-slider swiper">
         <div class="swiper-wrapper align-items-center">
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-1.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-1.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
+            <?php foreach($guru as $isi): ?>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <a href="<?= base_url($isi->foto)?>" class="glightbox">
+                            <img src="<?= base_url($isi->foto)?>" class="img-fluid" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><?=$isi->nama_jabatan?></h5>
+                            <p class="card-text text-center"><?=$isi->nama?></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-2.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-2.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-3.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-3.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-4.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-4.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-5.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-5.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="card">
-                <a href="assets/img/recent-photos/recent-photos-6.jpg" class="glightbox">
-                    <img src="assets/img/recent-photos/recent-photos-6.jpg" class="img-fluid" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Kepala Sekolah</h5>
-                    <p class="card-text text-center">Bambang</p>
-                </div>
-            </div>
-        </div>
+            <?php endforeach; ?>
         </div>
         <div class="swiper-pagination"></div>
     </div>
