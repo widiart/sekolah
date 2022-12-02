@@ -1,9 +1,9 @@
 <?php
 
-class Berita_model extends CI_Model
+class Unduhan_model extends CI_Model
 {
 
-    private $table = 'berita';
+    private $table = 'unduhan';
 
     function __construct()
     {
