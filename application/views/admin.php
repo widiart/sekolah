@@ -8,12 +8,12 @@
 <body>
 
   <?php $this->load->view('/template/admin/topmenu') ?>
-  
+
   <?php $this->load->view('/template/admin/sidemenu') ?>
 
   <main id="main" class="main">
 
-  <?php $this->load->view($page,[]) ?>
+    <?php $this->load->view($page, empty($models) ? [] : $models) ?>
 
   </main><!-- End #main -->
 

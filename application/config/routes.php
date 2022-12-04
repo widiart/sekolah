@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -52,3 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// h
+$route['admin/guru'] = 'guru/index';
+$route['admin/guru/add'] = 'guru/add';
+$route['admin/guru/add_action'] = 'guru/add_action';
+$route['admin/guru/detail/(:num)'] = 'guru/detail/$1';
+$route['admin/guru/update/(:num)'] = 'guru/update/$1';
+$route['admin/guru/update_action/(:num)'] = 'guru/update_action/$1';
+$route['admin/guru/hapus/(:num)'] = 'guru/hapus/$1';

@@ -1,14 +1,15 @@
 <?php
-if(!defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-function get_landing_menu() {
-	$CI =& get_instance();
+function get_landing_menu()
+{
+	$CI = &get_instance();
 	$CI->load->model('menu_model');
-	$result = $CI->menu_model->get_menu_landing();	
-	
+	$result = $CI->menu_model->get_menu_landing();
+
 	$menu = [];
-	foreach($result as $isi):
-		if($isi->id_parent == 0) {
+	foreach ($result as $isi) :
+		if ($isi->id_parent == 0) {
 			$menu[$isi->id]['nama'] = $isi->nama;
 			$menu[$isi->id]['url'] = $isi->url;
 		} else {
@@ -18,5 +19,13 @@ function get_landing_menu() {
 	endforeach;
 
 	return $menu;
-	
+}
+
+function get_form_value($form, $field)
+{
+	if (!empty($form[$field])) {
+		return $form[$field];
+	}
+
+	return '';
 }

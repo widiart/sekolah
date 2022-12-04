@@ -9,7 +9,7 @@ class Osis extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['setting_model', 'kegiatan_model']);
+        $this->load->model(['setting_model', 'kegiatan_model', 'pengurus_model']);
     }
 
     public function index()
@@ -28,7 +28,7 @@ class Osis extends CI_Controller
     public function pengurus()
     {
         $data['page'] = _LANDING_DIR_ . '/osis/pengurus';
-        $data['models']['about'] = $this->setting_model->getAllContent();
+        $data['models']['pengurus'] = $this->pengurus_model->getAllContentWithRelation();
 
         $this->load->view('landing', $data);
     }
