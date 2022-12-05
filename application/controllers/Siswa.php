@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Guru extends CI_Controller
+class Siswa extends CI_Controller
 {
 
 	private $customJs;
@@ -15,25 +15,25 @@ class Guru extends CI_Controller
             redirect('/login');
         }
 
-		$this->load->model(['guru_model','jabatan_model']);
+		$this->load->model(['siswa_model','ruang_model']);
 		$this->load->helper('form');
 	}
 
 	public function index()
 	{
-		$data['page'] = _ADMIN_DIR_ . '/guru/index';
-		$data['models']['guru'] = $this->guru_model->getAllContentWithRelation();
+		$data['page'] = _ADMIN_DIR_ . '/siswa/index';
+		$data['models']['siswa'] = $this->siswa_model->getAllContentWithRelation();
 
 		$this->load->view('admin', $data);
 	}
 
 	public function detail($id)
 	{
-		$data['page'] = _ADMIN_DIR_ . '/guru/detail';
-		$data['models']['guru'] = $this->guru_model->getContentByIdWithRelation($id);
+		$data['page'] = _ADMIN_DIR_ . '/siswa/detail';
+		$data['models']['siswa'] = $this->siswa_model->getContentByIdWithRelation($id);
 		$data['models']['form'] = [
-			'title' => 'Tambah Baru',
-			'subtitle' => 'Data Guru',
+			'title' => 'Detail Siswa',
+			'subtitle' => 'Data Siswa',
 		];
 
 		$this->load->view('admin', $data);
@@ -41,12 +41,12 @@ class Guru extends CI_Controller
 
 	public function add()
 	{
-		$data['page'] = _ADMIN_DIR_ . '/guru/form';
-		$data['models']['jabatan'] = $this->jabatan_model->getAllContent();
+		$data['page'] = _ADMIN_DIR_ . '/siswa/form';
+		$data['models']['ruang'] = $this->ruang_model->getAllContent();
 		$data['models']['form'] = [
 			'title' => 'Tambah Baru',
-			'subtitle' => 'Data Guru',
-			'action' => '/admin/guru/add_action',
+			'subtitle' => 'Data siswa',
+			'action' => '/admin/siswa/add_action',
 		];
 
 		if($this->session->flashdata('input')) {
@@ -60,30 +60,30 @@ class Guru extends CI_Controller
 	{
 		$post = $this->input->post();
 		$post['foto'] = $this->upload();
-		if($this->guru_model->insert($post)){
-			redirect('/admin/guru');
+		if($this->siswa_model->insert($post)){
+			redirect('/admin/siswa');
 		} else {
 			$this->session->set_flashdata('input',$this->input->post());
-			redirect('/admin/guru/add');
+			redirect('/admin/siswa/add');
 		}
 
 	}
 
 	public function update($id)
 	{
-		$data['page'] = _ADMIN_DIR_ . '/guru/form';
-		$data['models']['jabatan'] = $this->jabatan_model->getAllContent();
-		$data['models']['guru'] = $this->guru_model->getContentByIdWithRelation($id);
+		$data['page'] = _ADMIN_DIR_ . '/siswa/form';
+		$data['models']['ruang'] = $this->ruang_model->getAllContent();
+		$data['models']['siswa'] = $this->siswa_model->getContentByIdWithRelation($id);
 		$data['models']['form'] = [
 			'title' => 'Update',
-			'subtitle' => 'Data Guru',
-			'action' => '/admin/guru/update_action/'.$id,
+			'subtitle' => 'Data Siswa',
+			'action' => '/admin/siswa/update_action/'.$id,
 		];
 		
 		if($this->session->flashdata('input')) {
 			$data['models']['form'] = array_merge($data['models']['form'],$this->session->flashdata('input'));
 		} else {
-			$model = $this->guru_model->getContentByIdWithRelation($id);
+			$model = $this->siswa_model->getContentByIdWithRelation($id);
 			$data['models']['form'] = array_merge($data['models']['form'],$this->objToArray($model));
 		}
 
@@ -92,20 +92,20 @@ class Guru extends CI_Controller
 
 	public function hapus($id)
 	{
-		$this->guru_model->delete($id);
+		$this->siswa_model->delete($id);
 
-		redirect('/admin/guru');
+		redirect('/admin/siswa');
 	}
 
 	public function update_action($id)
 	{
 		$post = $this->input->post();
 		$post['foto'] = $this->upload();
-		if($this->guru_model->update($post,$id)){
-			redirect('/admin/guru');
+		if($this->siswa_model->update($post,$id)){
+			redirect('/admin/siswa');
 		} else {
 			$this->session->set_flashdata('input',$this->input->post());
-			redirect('/admin/guru/update/'.$id);
+			redirect('/admin/siswa/update/'.$id);
 		}
 
 	}
@@ -122,7 +122,7 @@ class Guru extends CI_Controller
 
 	private function upload()
 	{
-		$config['upload_path']          = 'assets/img/guru/';
+		$config['upload_path']          = 'assets/img/siswa/';
         $config['file_name']            = str_replace(" ","",$this->input->post('nama'));
         $config['overwrite']            = true;
 		$config['allowed_types']        = 'gif|jpg|png';

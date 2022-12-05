@@ -53,7 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// h
+// guru
 $route['admin/guru'] = 'guru/index';
 $route['admin/guru/add'] = 'guru/add';
 $route['admin/guru/add_action'] = 'guru/add_action';
@@ -61,3 +61,12 @@ $route['admin/guru/detail/(:num)'] = 'guru/detail/$1';
 $route['admin/guru/update/(:num)'] = 'guru/update/$1';
 $route['admin/guru/update_action/(:num)'] = 'guru/update_action/$1';
 $route['admin/guru/hapus/(:num)'] = 'guru/hapus/$1';
+
+// siswa
+$route['admin/siswa'] = 'siswa/index';
+$route['admin/siswa/add'] = 'siswa/add';
+$route['admin/siswa/add_action'] = 'siswa/add_action';
+$route['admin/siswa/detail/(:num)'] = 'siswa/detail/$1';
+$route['admin/siswa/update/(:num)'] = 'siswa/update/$1';
+$route['admin/siswa/update_action/(:num)'] = 'siswa/update_action/$1';
+$route['admin/siswa/hapus/(:num)'] = 'siswa/hapus/$1';

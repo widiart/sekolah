@@ -29,13 +29,6 @@ class Admin extends CI_Controller
         $this->load->view('admin', $data);
     }
 
-    public function siswa()
-    {
-        $data['page'] = _ADMIN_DIR_ . '/siswa/index';
-
-        $this->load->view('admin', $data);
-    }
-
     public function siswa_tambah()
     {
         $data['page'] = _ADMIN_DIR_ . '/siswa/tambah_siswa';

@@ -18,7 +18,7 @@
                         <div class="card-body px-0">
                             <div class="text-center">
                                 <img class="mb-3" src="<?= base_url("assets/img/doc.png") ?>" alt=""><br>
-                                <a class="btn btn-sm btn-primary" href="<?= base_url("$isi->file") ?>">Unduh</a>
+                                <a class="btn btn-sm btn-primary" href="<?= base_url("/informasi/download/{$isi->id}/{$isi->judul}") ?>">Unduh</a>
                             </div>
                             <p class="card-text text-left m-3 fs-6">
                                 <?= substr(strip_tags($isi->keterangan), 0, 256) ?> ...

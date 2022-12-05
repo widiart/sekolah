@@ -56,4 +56,12 @@ class Informasi extends CI_Controller
 
         $this->load->view('landing', $data);
     }
+
+    public function download($id)
+    {
+        $this->load->helper('download');
+        $data = $this->unduhan_model->getContentById($id);
+        
+        force_download($data->file, NULL);
+    }
 }
