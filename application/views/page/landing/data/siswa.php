@@ -15,29 +15,28 @@
                             <thead class="text-center table-secondary" style="vertical-align: middle;">
                                 <tr>
                                     <th width="5%" rowspan="2">No</th>
+                                    <th rowspan="2">NISN</th>
                                     <th rowspan="2">Nama</th>
                                     <th rowspan="2">Kelas</th>
                                     <th rowspan="2">Tahun Ajaran</th>
-                                    <th rowspan="2">Wali Kelas</th>
-                                    <th colspan="2">Jumlah</th>
-                                    <th rowspan="2">Detail</th>
-                                </tr>
-                                <tr>
-                                    <th>Laki-Laki</th>
-                                    <th>Perempuan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th class="text-center">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                <?php
+                                $no =  1;
+                                foreach ($siswa as $isi) :
+                                ?>
+                                    <tr>
+                                        <th class="text-center"><?= $no ?></th>
+                                        <td><?= $isi->nisn ?></td>
+                                        <td><?= $isi->nama ?></td>
+                                        <td><?= $isi->nama_kelas ?></td>
+                                        <td><?= $isi->tahun_masuk ?></td>
+                                    </tr>
+                                <?php
+                                    $no++;
+                                endforeach;
+                                ?>
                             </tbody>
                         </table>
                     </div>

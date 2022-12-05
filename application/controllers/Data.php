@@ -9,7 +9,7 @@ class Data extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['ruang_model', 'guru_model']);
+		$this->load->model(['ruang_model', 'guru_model', 'siswa_model']);
 	}
 
 	public function index()
@@ -49,6 +49,7 @@ class Data extends CI_Controller
 	public function siswa()
 	{
 		$data['page'] = _LANDING_DIR_ . '/data/siswa';
+		$data['models']['siswa'] = $this->siswa_model->getAllContentWithRelation();
 
 		$this->load->view('landing', $data);
 	}

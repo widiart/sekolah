@@ -25,4 +25,21 @@ class Pengumuman_model extends CI_Model
 
         return $query->row();
     }
+
+    function insert($data)
+    {
+        unset($data['submit']);
+        return $this->db->insert($this->table, $data);
+    }
+
+    function update($data, $id)
+    {
+        unset($data['submit']);
+        return $this->db->update($this->table, $data, ['id' => $id]);
+    }
+
+    function delete($id)
+    {
+        return $this->db->delete($this->table, ['id' => $id]);
+    }
 }

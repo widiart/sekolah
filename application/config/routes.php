@@ -70,3 +70,21 @@ $route['admin/siswa/detail/(:num)'] = 'siswa/detail/$1';
 $route['admin/siswa/update/(:num)'] = 'siswa/update/$1';
 $route['admin/siswa/update_action/(:num)'] = 'siswa/update_action/$1';
 $route['admin/siswa/hapus/(:num)'] = 'siswa/hapus/$1';
+
+// pengumuman
+$route['admin/pengumuman'] = 'pengumuman/index';
+$route['admin/pengumuman/add'] = 'pengumuman/add';
+$route['admin/pengumuman/add_action'] = 'pengumuman/add_action';
+$route['admin/pengumuman/detail/(:num)'] = 'pengumuman/detail/$1';
+$route['admin/pengumuman/update/(:num)'] = 'pengumuman/update/$1';
+$route['admin/pengumuman/update_action/(:num)'] = 'pengumuman/update_action/$1';
+$route['admin/pengumuman/hapus/(:num)'] = 'pengumuman/hapus/$1';
+
+// unduhan
+$route['admin/unduhan'] = 'unduhan/index';
+$route['admin/unduhan/add'] = 'unduhan/add';
+$route['admin/unduhan/add_action'] = 'unduhan/add_action';
+$route['admin/unduhan/detail/(:num)'] = 'unduhan/detail/$1';
+$route['admin/unduhan/update/(:num)'] = 'unduhan/update/$1';
+$route['admin/unduhan/update_action/(:num)'] = 'unduhan/update_action/$1';
+$route['admin/unduhan/hapus/(:num)'] = 'unduhan/hapus/$1';
