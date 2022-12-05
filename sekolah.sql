@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 08:33 AM
+-- Generation Time: Dec 05, 2022 at 01:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -107,20 +107,26 @@ CREATE TABLE `guru` (
   `id_jabatan` int(11) DEFAULT NULL,
   `foto` text DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
-  `is_visible` tinyint(4) DEFAULT 1
+  `is_visible` tinyint(4) DEFAULT 1,
+  `nuptk` varchar(255) DEFAULT NULL,
+  `nik` varchar(255) DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
+  `tempat_lahir` varchar(255) DEFAULT NULL,
+  `jk` enum('L','P') DEFAULT NULL,
+  `alamat` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id`, `nama`, `id_jabatan`, `foto`, `keterangan`, `is_visible`) VALUES
-(1, 'Bambang', 1, 'assets\\img\\members\\member-2.jpg', NULL, 1),
-(2, 'Maharani', 2, 'assets\\img\\members\\member-1.jpg', NULL, 1),
-(3, 'Annisa', 3, 'assets\\img\\members\\member-3.jpg', NULL, 1),
-(4, 'Topan', 4, 'assets\\img\\members\\member-2.jpg', NULL, 1),
-(5, 'Wiranto', 4, 'assets\\img\\members\\member-2.jpg', NULL, 1),
-(6, 'Agus Bayu', 4, 'assets\\img\\members\\member-2.jpg', NULL, 1);
+INSERT INTO `guru` (`id`, `nama`, `id_jabatan`, `foto`, `keterangan`, `is_visible`, `nuptk`, `nik`, `tanggal_lahir`, `tempat_lahir`, `jk`, `alamat`) VALUES
+(1, 'Bambang', 1, 'assets\\img\\members\\member-2.jpg', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Maharani', 2, 'assets\\img\\members\\member-1.jpg', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Annisa', 3, 'assets\\img\\members\\member-3.jpg', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Topan', 4, 'assets\\img\\members\\member-2.jpg', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'Wiranto', 4, 'assets\\img\\members\\member-2.jpg', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'Ariffandy Abdurahman', 4, 'assets/img/guru/AriffandyAbdurahman.png', NULL, 1, '311134', '3520054806010001', '2022-12-19', 'Magetan', 'L', 'Alamat');
 
 -- --------------------------------------------------------
 
@@ -142,6 +148,27 @@ INSERT INTO `jabatan` (`id`, `nama`) VALUES
 (2, 'Wakil Kepala Sekolah'),
 (3, 'Staff TU'),
 (4, 'Guru');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jabatan_osis`
+--
+
+CREATE TABLE `jabatan_osis` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `jabatan_osis`
+--
+
+INSERT INTO `jabatan_osis` (`id`, `nama`) VALUES
+(1, 'Ketua Osis'),
+(2, 'Wakil Ketua Osis'),
+(3, 'Sekretaris'),
+(4, 'Bendahara');
 
 -- --------------------------------------------------------
 
@@ -248,6 +275,31 @@ INSERT INTO `menu` (`id`, `id_parent`, `nama`, `url`, `is_admin`, `order`, `is_v
 (18, 17, 'Tentang Osis', '/osis/about', 0, 1, 1),
 (19, 17, 'Pengurus Osis', '/osis/pengurus', 0, 2, 1),
 (20, 17, 'Bidang Kegiatan', '/osis/kegiatan', 0, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `osis`
+--
+
+CREATE TABLE `osis` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `id_jabatan` int(11) DEFAULT NULL,
+  `foto` text DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `is_visible` tinyint(4) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `osis`
+--
+
+INSERT INTO `osis` (`id`, `nama`, `id_jabatan`, `foto`, `keterangan`, `is_visible`) VALUES
+(1, 'Sehun', 1, 'assets\\img\\members\\sehun.jpg', NULL, 1),
+(2, 'Jeno', 2, 'assets\\img\\members\\jeno.jpg', NULL, 1),
+(3, 'Jaemin', 3, 'assets\\img\\members\\jaemin.jpg', NULL, 1),
+(4, 'Hanbin', 4, 'assets\\img\\members\\hanbin.jpg', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -372,6 +424,26 @@ INSERT INTO `unduhan` (`id`, `judul`, `keterangan`, `file`, `create_date`, `is_v
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `role`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `video`
 --
 
@@ -428,6 +500,12 @@ ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `jabatan_osis`
+--
+ALTER TABLE `jabatan_osis`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `jenis_ruang`
 --
 ALTER TABLE `jenis_ruang`
@@ -449,6 +527,12 @@ ALTER TABLE `kegiatan`
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `osis`
+--
+ALTER TABLE `osis`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
@@ -474,6 +558,12 @@ ALTER TABLE `setting`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `video`
@@ -507,12 +597,18 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `jabatan_osis`
+--
+ALTER TABLE `jabatan_osis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -540,6 +636,12 @@ ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `osis`
+--
+ALTER TABLE `osis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
@@ -562,6 +664,12 @@ ALTER TABLE `setting`
 --
 ALTER TABLE `slider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `video`
