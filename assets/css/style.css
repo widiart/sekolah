@@ -1369,3 +1369,42 @@ section {
 a.berita:hover .card-body {
   color: #006fbe;
 }
+
+/* Tambahan */
+
+#header {
+  background: var(--bs-red);
+}
+
+#header .logo a {
+  color: var(--bs-white);
+}
+
+.navbar a, .navbar a:focus {
+  color: var(--bs-white);
+}
+
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>a {
+  color: var(--bs-white);
+}
+
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover>a {
+  color: var(--bs-white);
+}
+
+.navbar .dropdown ul {
+  background: var(--bs-red);
+}
+
+.navbar-mobile ul {
+  background: var(--bs-red);
+}
+
+.about {
+  background: var(--bs-red);
+  color: white;
+}
+
+#footer {
+  background: var(--bs-green);
+}

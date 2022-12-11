@@ -17,9 +17,9 @@
       endforeach; 
       ?>
       <?php if($this->session->userdata('role') == 'admin'): ?>
-        <li><a href="<?=base_url("/admin")?>" class="btn btn-primary px-3 py-1 mx-3 text-white">Admin Page</a></li>
+        <li><a href="<?=base_url("/admin")?>" class="btn btn-success px-3 py-1 mx-3 text-white">Admin Page</a></li>
       <?php else: ?>
-        <li><a href="<?=base_url("/login")?>" class="btn btn-primary px-3 py-1 mx-3 text-white">Login</a></li>
+        <li><a href="<?=base_url("/login")?>" class="btn btn-success px-3 py-1 mx-3 text-white">Login</a></li>
       <?php endif; ?>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
