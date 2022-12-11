@@ -11,7 +11,7 @@
       $i = 1;
       foreach($slider as $isi):
       ?>
-        <div class="carousel-item <?=$i++==1?"active":""?>" style="background-image: url(<?=$isi->file?>)">
+        <div class="carousel-item <?=$i++==1?"active":""?>" style="background-image: url(<?=$isi->file?>);background-position: center center;">
         </div>
       <?php
       endforeach;

@@ -18,7 +18,7 @@
                                     <th rowspan="2">NISN</th>
                                     <th rowspan="2">Nama</th>
                                     <th rowspan="2">Kelas</th>
-                                    <th rowspan="2">Tahun Ajaran</th>
+                                    <th rowspan="2">Jurusan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,7 +31,7 @@
                                         <td><?= $isi->nisn ?></td>
                                         <td><?= $isi->nama ?></td>
                                         <td><?= $isi->nama_kelas ?></td>
-                                        <td><?= $isi->tahun_masuk ?></td>
+                                        <td><?= $isi->nama_jurusan ?></td>
                                     </tr>
                                 <?php
                                     $no++;

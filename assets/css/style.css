@@ -1405,6 +1405,14 @@ a.berita:hover .card-body {
   color: white;
 }
 
+.about .content ul i {
+  color: var(--bs-yellow);
+}
+
+.section-title h2::after {
+  background: var(--bs-success);
+}
+
 #footer {
   background: var(--bs-green);
 }

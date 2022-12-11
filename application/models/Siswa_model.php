@@ -21,10 +21,11 @@ class Siswa_model extends CI_Model
 
     function getAllContentWithRelation($limit = 0)
     {
-        $this->db->select("{$this->table}.*, ruang.nama as nama_kelas");
+        $this->db->select("{$this->table}.*, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan");
         $this->db->from($this->table);
-        $this->db->join("ruang", "{$this->table}.id_kelas = ruang.id");
-        $this->db->where(['is_visible' => 1]);
+        $this->db->join("kelas", "{$this->table}.id_kelas = kelas.id");
+        $this->db->join("jurusan", "jurusan.id = kelas.id_jurusan");
+        $this->db->where(["{$this->table}.is_visible" => 1]);
         if (!empty($limit)) {
             $this->db->limit($limit);
         }

@@ -2,34 +2,67 @@
 <section class="berita">
     <div class="container">
 
-    <div class="section-title">
-        <h2>Berita Terbaru</h2>
-    </div>
-    
-    <div class="row content">
-        <?php
-        foreach($berita as $isi):
-        ?>
-            <div class="col-lg-4 pt-4 pt-lg-0">
-                <a class="berita" href="<?= base_url("home/berita/$isi->id/$isi->judul")?>">
-                    <div class="card text-black">
-                        <img src="<?= base_url($isi->thumbnail)?>" class="img-fluid" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title text-center fs-4"><?= $isi->judul?></h5>
-                            <p class="card-text text-left mt-3 fs-6">
-                                <?= substr(strip_tags($isi->isi),0,126) ?> ...
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        <?php
-        endforeach;
-        ?>
-        <div class="col-lg-12 mt-4">
-            <a class="btn btn-primary float-end" href="">Berita Lainnya</a>
+    <?php if(!empty($berita)): ?>
+        <div class="section-title">
+            <h2>Berita Terbaru</h2>
         </div>
-    </div>
+        
+        <div class="row content">
+            <?php
+            foreach($berita as $isi):
+            ?>
+                <div class="col-lg-4 pt-4 pt-lg-0">
+                    <a class="berita" href="<?= base_url("home/berita/$isi->id/$isi->judul")?>">
+                        <div class="card text-black">
+                            <img src="<?= base_url($isi->thumbnail)?>" class="img-fluid" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fs-4"><?= $isi->judul?></h5>
+                                <p class="card-text text-left mt-3 fs-6">
+                                    <?= substr(strip_tags($isi->isi),0,126) ?> ...
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            endforeach;
+            ?>
+            <div class="col-lg-12 mt-4">
+                <a class="btn btn-primary float-end" href="">Berita Lainnya</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if(!empty($agenda)): ?>
+        <div class="section-title">
+            <h2>Kegiatan Terbaru</h2>
+        </div>
+        
+        <div class="row content">
+            <?php
+            foreach($agenda as $isi):
+            ?>
+                <div class="col-lg-4 pt-4 pt-lg-0">
+                    <a class="berita" href="<?= base_url("informasi/agenda/$isi->id/$isi->judul")?>">
+                        <div class="card text-black">
+                            <img src="<?= base_url($isi->thumbnail)?>" class="img-fluid" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fs-4"><?= $isi->judul?></h5>
+                                <p class="card-text text-left mt-3 fs-6">
+                                    <?= substr(strip_tags($isi->isi),0,126) ?> ...
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            endforeach;
+            ?>
+            <div class="col-lg-12 mt-4">
+                <a class="btn btn-primary float-end" href="">Agenda Lainnya</a>
+            </div>
+        </div>
+    <?php endif; ?>
 
     </div>
 </section>
