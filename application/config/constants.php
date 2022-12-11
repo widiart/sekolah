@@ -84,7 +84,7 @@ defined('EXIT_DATABASE')       or define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-defined('PAGE_TITLE')      or define('PAGE_TITLE', 'Sekolah'); // highest automatically-assigned error code
-defined('NAV_BRAND')      or define('NAV_BRAND', 'Sekolah'); // highest automatically-assigned error code
+defined('PAGE_TITLE')      or define('PAGE_TITLE', 'SMK DARUL ULUM MAROS'); // highest automatically-assigned error code
+defined('NAV_BRAND')      or define('NAV_BRAND', 'SMK DARUL ULUM'); // highest automatically-assigned error code
 defined('_LANDING_DIR_')      or define('_LANDING_DIR_', '/page/landing'); // highest automatically-assigned error code
 defined('_ADMIN_DIR_')      or define('_ADMIN_DIR_', '/page/admin'); // highest automatically-assigned error code
