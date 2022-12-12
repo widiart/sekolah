@@ -15,7 +15,6 @@
                             <thead class="text-center table-secondary" style="vertical-align: middle;">
                                 <tr>
                                     <th width="5%" rowspan="2">No</th>
-                                    <th rowspan="2">NISN</th>
                                     <th rowspan="2">Nama</th>
                                     <th rowspan="2">Kelas</th>
                                     <th rowspan="2">Jurusan</th>
@@ -28,7 +27,6 @@
                                 ?>
                                     <tr>
                                         <th class="text-center"><?= $no ?></th>
-                                        <td><?= $isi->nisn ?></td>
                                         <td><?= $isi->nama ?></td>
                                         <td><?= $isi->nama_kelas ?></td>
                                         <td><?= $isi->nama_jurusan ?></td>
