@@ -1385,15 +1385,15 @@ a.berita:hover .card-body {
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>a {
-  color: var(--bs-white);
+  color: var(--bs-yellow);
 }
 
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover>a {
-  color: var(--bs-white);
+  color: var(--bs-yellow);
 }
 
 .navbar .dropdown ul {
-  background: var(--bs-red);
+  background: var(--bs-green);
 }
 
 .navbar-mobile ul {
