@@ -10,6 +10,7 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <?php if($this->session->userdata('role') && $this->session->userdata('role') == 'admin'):?>
         <li class="nav-heading">Data</li>
 
         <li class="nav-item">
@@ -25,6 +26,7 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <?php endif; ?>
         <li class="nav-heading">Lainnya</li>
 
         <li class="nav-item">

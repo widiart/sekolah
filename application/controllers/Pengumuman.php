@@ -9,7 +9,7 @@ class Pengumuman extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $allowedRole = ['admin',];
+        $allowedRole = ['admin','osis',];
 
         if (!in_array($this->session->userdata('role'), $allowedRole)) {
             redirect('/login');

@@ -22,32 +22,32 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">NIK</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nik" value="<?= get_form_value($form, 'nik') ?>" class="form-control">
+                            <input type="number" onKeyDown="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="16" name="nik" value="<?= get_form_value($form, 'nik') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">NUPTK</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nuptk" value="<?= get_form_value($form, 'nuptk') ?>" class="form-control">
+                            <input type="text" name="nuptk" value="<?= get_form_value($form, 'nuptk') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nama" value="<?= get_form_value($form, 'nama') ?>" class="form-control">
+                            <input type="text" name="nama" value="<?= get_form_value($form, 'nama') ?>" class="form-control" required>
                         </div>
                     </div>
                     <fieldset class="row mb-3">
                         <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jk" id="gridRadios1" value="L" <?= get_form_value($form, 'jk') == 'L' ? 'checked' : '' ?>>
+                                <input class="form-check-input" type="radio" name="jk" id="gridRadios1" value="L" <?= get_form_value($form, 'jk') == 'L' ? 'checked' : '' ?> required>
                                 <label class="form-check-label" for="gridRadios1">
                                     Laki-laki
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jk" id="gridRadios2" value="P" <?= get_form_value($form, 'jk') == 'P' ? 'checked' : '' ?>>
+                                <input class="form-check-input" type="radio" name="jk" id="gridRadios2" value="P" <?= get_form_value($form, 'jk') == 'P' ? 'checked' : '' ?> required>
                                 <label class="form-check-label" for="gridRadios2">
                                     Perempuan
                                 </label>
@@ -57,11 +57,11 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Tempat Lahir</label>
                         <div class="col-sm-4">
-                            <input type="text" name="tempat_lahir" value="<?= get_form_value($form, 'tempat_lahir') ?>" class="form-control">
+                            <input type="text" name="tempat_lahir" value="<?= get_form_value($form, 'tempat_lahir') ?>" class="form-control" required>
                         </div>
                         <label for="inputText" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-4">
-                            <input type="date" name="tanggal_lahir" value="<?= get_form_value($form, 'tanggal_lahir') ?>" class="form-control">
+                            <input type="date" name="tanggal_lahir" value="<?= get_form_value($form, 'tanggal_lahir') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
