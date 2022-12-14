@@ -1,5 +1,5 @@
 
-<section class="berita">
+<section class="about">
     <div class="container">
 
     <?php if(!empty($berita)): ?>
@@ -67,6 +67,40 @@
     </div>
 </section>
 
+<section class="pengumuman">
+    <div class="container">
+    <?php if(!empty($pengumuman)): ?>
+        <div class="section-title">
+            <h2>Pengumuman Terbaru</h2>
+        </div>
+        
+        <div class="row content">
+            <?php
+            foreach($pengumuman as $isi):
+            ?>
+                <div class="col-lg-4 pt-4 pt-lg-0">
+                    <a class="berita" href="<?= base_url("informasi/agenda/$isi->id/$isi->judul")?>">
+                        <div class="card text-black">
+                            <img src="<?= base_url($isi->thumbnail)?>" class="img-fluid" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fs-4"><?= $isi->judul?></h5>
+                                <p class="card-text text-left mt-3 fs-6">
+                                    <?= substr(strip_tags($isi->isi),0,126) ?> ...
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            endforeach;
+            ?>
+            <div class="col-lg-12 mt-4">
+                <a class="btn btn-primary float-end" href="">Pengumuman Lainnya</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    </div>
+</section>
 <section class="about">
     <div class="container">
 
