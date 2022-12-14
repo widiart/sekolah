@@ -119,7 +119,7 @@ class Pengumuman extends CI_Controller
     private function upload()
     {
         $config['upload_path']          = 'assets/img/pengumuman/';
-        $config['file_name']            = str_replace(" ", "", $this->input->post('nama'));
+        $config['file_name']            = str_replace(" ", "", $this->input->post('judul'));
         $config['overwrite']            = true;
         $config['allowed_types']        = 'gif|jpg|png';
 
@@ -130,7 +130,7 @@ class Pengumuman extends CI_Controller
             $path = '';
         } else {
             $data = $this->upload->data();
-            $path = $config['upload_path'] . str_replace(" ", "", $this->input->post('nama')) . $data['file_ext'];
+            $path = $config['upload_path'] . str_replace(" ", "", $this->input->post('judul')) . $data['file_ext'];
         }
 
         return $path;
