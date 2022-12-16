@@ -28,7 +28,7 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">NUPTK</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nuptk" value="<?= get_form_value($form, 'nuptk') ?>" class="form-control" required>
+                            <input type="number" onKeyDown="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="16" name="nuptk" value="<?= get_form_value($form, 'nuptk') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
