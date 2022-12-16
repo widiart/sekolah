@@ -15,7 +15,7 @@ class Siswa extends CI_Controller
             redirect('/login');
         }
 
-		$this->load->model(['siswa_model','ruang_model']);
+		$this->load->model(['siswa_model','ruang_model','kelas_model']);
 		$this->load->helper('form');
 	}
 
@@ -42,7 +42,7 @@ class Siswa extends CI_Controller
 	public function add()
 	{
 		$data['page'] = _ADMIN_DIR_ . '/siswa/form';
-		$data['models']['ruang'] = $this->ruang_model->getAllContent();
+		$data['models']['kelas'] = $this->kelas_model->getAllContent();
 		$data['models']['form'] = [
 			'title' => 'Tambah Baru',
 			'subtitle' => 'Data siswa',

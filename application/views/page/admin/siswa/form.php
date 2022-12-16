@@ -75,7 +75,7 @@
                         <div class="col-sm-10">
                             <select class="form-select" name="id_kelas" aria-label="Default select example" required>
                                 <option>Silahkan Pilih Kelas</option>
-                                <?php foreach ($ruang as $isi) : ?>
+                                <?php foreach ($kelas as $isi) : ?>
                                     <option value="<?= $isi->id ?>" <?= get_form_value($form, 'id_kelas') == $isi->id ? 'selected' : '' ?>><?= $isi->nama ?></option>
                                 <?php endforeach; ?>
                             </select>
