@@ -19,13 +19,16 @@ class Siswa_model extends CI_Model
         return $query->result();
     }
 
-    function getAllContentWithRelation($limit = 0)
+    function getAllContentWithRelation($limit = 0,$order = null)
     {
         $this->db->select("{$this->table}.*, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan");
         $this->db->from($this->table);
         $this->db->join("kelas", "{$this->table}.id_kelas = kelas.id");
         $this->db->join("jurusan", "jurusan.id = kelas.id_jurusan");
         $this->db->where(["{$this->table}.is_visible" => 1]);
+        if(!empty($order)) {
+            $this->db->order_by($order);
+        }
         if (!empty($limit)) {
             $this->db->limit($limit);
         }
