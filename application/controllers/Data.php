@@ -49,7 +49,7 @@ class Data extends CI_Controller
 	public function siswa()
 	{
 		$data['page'] = _LANDING_DIR_ . '/data/siswa';
-		$data['models']['siswa'] = $this->siswa_model->getAllContentWithRelation(order:'kelas.nama');
+		$data['models']['siswa'] = $this->siswa_model->getAllContentWithRelation(order:'kelas.nama,siswa.nama');
 
 		$this->load->view('landing', $data);
 	}
